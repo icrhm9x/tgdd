@@ -1,0 +1,70 @@
+/* Common */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    font-size: 14px;
+    width: 100%;
+    background: #F0F0F0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+input,
+select,
+textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.only-pc {
+    display: block;
+}
+
+.only-sp {
+    display: none !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .only-pc {
+        display: none !important;
+    }
+    
+    .only-sp {
+        display: block !important;
+    }
+}
+
+.Responsive {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+.Noscroll {
+    overflow: hidden;
+}
