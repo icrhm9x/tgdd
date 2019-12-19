@@ -18,10 +18,10 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
 </head>
 
 <body>
-    <!----------------  Header ---------------->
+    <!----------------  Header  ---------------->
     <?php require_once DOC_ROOT . '/tgdd/common/inc/header.inc';  ?>
 
-    <!----------------  Banner ----------------->
+    <!----------------  Banner  ----------------->
     <div class="Responsive">
         <div class="Banner">
             <div class="js-carousel Carousel">
@@ -83,6 +83,204 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
                 <a class="Banner-content-item" href="#">
                     <img src="images/Banner/banner_right_02.png" alt="banner">
                 </a>
+            </div>
+        </div>
+    </div>
+    <!----------------  Promotion  ----------------->
+    <div class="Responsive">
+        <div class="Promotion">
+            <div class="Promotion-head">
+                <h2>khuyến mãi hot nhất</h2>
+            </div>
+            <div class="Promotion-content">
+                <div class="js-promoList Promotion-content-list">
+                    <a class="Promotion-content-item" id="promo1" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-001.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo2" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-002.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo3" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-003.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo4" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-004.jpg" alt="">
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo5" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-005.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo6" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-001.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo7" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-002.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo8" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-003.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo9" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-004.jpg" alt="">
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo10" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-005.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo11" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-001.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo12" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-002.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo13" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-003.jpg" alt="">
+                            <div class="Promotion-content-item-discount">
+                                <p>giảm 600.000₫</p>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫<span>39.590.000₫</span></p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                    <a class="Promotion-content-item" id="promo14" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-004.jpg" alt="">
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="js-promoBtnPrev Promotion-content__btn Promotion-content__btn--prev">‹</div>
+                <div class="js-promoBtnNext Promotion-content__btn Promotion-content__btn--next">›</div>
             </div>
         </div>
     </div>
