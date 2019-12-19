@@ -199,7 +199,7 @@ $(function() {
         }
         Promo.currentItem-=numberItemShow;
         if(Promo.currentItem < 1){
-            Promo.currentItem = Promo.itemLength - (Promo.itemLength%numberItemShow) + 1;
+            Promo.currentItem = (Math.ceil(Promo.itemLength/numberItemShow)-1)*numberItemShow + 1;
         }
         scrollPromo(Promo.currentItem);
     });

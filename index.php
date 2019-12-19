@@ -278,6 +278,16 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
                             <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
                         </div>
                     </a>
+                    <a class="Promotion-content-item" id="promo15" href="#">
+                        <div class="Promotion-content-item__img">
+                            <img src="images/product/product-009.jpg" alt="">
+                        </div>
+                        <div class="Promotion-content-item-detail">
+                            <h3 class="Promotion-content-item-detail__name">iPhone 11 Pro Max 64GB</h3>
+                            <p class="Promotion-content-item-detail__price">33.990.000₫</p>
+                            <p class="Promotion-content-item-detail__txt">Phiếu mua hàng trị giá 1,2 triệu (được quy đổi thành tiền mặt)</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="js-promoBtnPrev Promotion-content__btn Promotion-content__btn--prev">‹</div>
                 <div class="js-promoBtnNext Promotion-content__btn Promotion-content__btn--next">›</div>
