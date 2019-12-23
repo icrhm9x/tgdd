@@ -214,4 +214,48 @@ $(function() {
         scrollPromo(Promo.currentItem);
     });
 
+    // ************************* Product *************************
+    var isGiftScrolling = false;
+    $('.js-productGiftBtn').click(function(){
+        if(isGiftScrolling){
+            return;
+        }
+        isGiftScrolling = true;
+        var parent = $(this).parent();
+        if(parent.hasClass('Product-content-item-gift--active')){
+            parent.removeClass('Product-content-item-gift--active');
+            setTimeout(function(){
+                parent.find('.Product-content-item-gift-detail').hide();
+                isGiftScrolling = false;
+            }, 500);
+        }else{
+            parent.find('.Product-content-item-gift-detail').show();
+            setTimeout(function(){
+                parent.addClass('Product-content-item-gift--active');
+                isGiftScrolling = false;
+            }, 20);
+        }
+    });
+
+    // ************************* Btn back to top  *************************
+    var backtotopBtn = $('.js-backtotopBtn');
+    var isBacktotopScrolling = false;
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 430){
+            backtotopBtn.fadeIn();
+        }else{
+            backtotopBtn.fadeOut();
+        }
+    });
+
+    backtotopBtn.click(function(){
+        if(isBacktotopScrolling){
+            return;
+        }
+        isBacktotopScrolling = true;
+        $('html, body').animate({scrollTop : 0}, 500, function(){
+            isBacktotopScrolling = false;
+        });
+    });
+
   });
