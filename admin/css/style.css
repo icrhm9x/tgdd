@@ -1,6 +1,10 @@
 body {
     font-size: .875rem;
   }
+
+label{
+  font-weight: bold;
+}
   
   .feather {
     width: 16px;
@@ -124,4 +128,10 @@ body {
     }
   }
 
-  /******************* category *******************/
+  /******************* product *******************/
+  .Product__image{
+    width: 100px;
+  }
+  .Add-product__image img{
+    width: 200px;
+  }

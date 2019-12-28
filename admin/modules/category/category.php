@@ -11,15 +11,14 @@ return confirm('bạn muốn xóa sản phẩm: '+name+' ?');
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Trang tổng quan</a></li>
-            <li class="breadcrumb-item"><a href="index.php?page_layout=category">Danh mục</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Danh sách</li>
+            <li class="breadcrumb-item active" aria-current="page">Danh mục</li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
         <h1 class="h2">Danh mục</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <a href="index.php?page_layout=add_category">
-                <button type="button" class="btn btn-success">Thêm mới</button>
+                <button type="button" class="btn btn-success"><i class="fas fa-plus mr-1"></i>Thêm mới</button>
             </a>
         </div>
     </div>
@@ -35,7 +34,7 @@ return confirm('bạn muốn xóa sản phẩm: '+name+' ?');
     <?php endif; ?>
     <table class="table table-hover">
         <thead>
-            <tr>
+            <tr class="table-active">
                 <th scope="col">#</th>
                 <th scope="col">Tên danh mục</th>
                 <th scope="col">Ngày thêm</th>

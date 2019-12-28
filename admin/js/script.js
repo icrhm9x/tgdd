@@ -1,53 +1,26 @@
-/* globals Chart:false, feather:false */
+$(function() {
+    // Handler for .ready() called.
+    
+    // ajax upload ảnh
+    $("#js-uploadFilePrd").click(function(){
 
-(function () {
-    'use strict'
-  
-    feather.replace()
-  
-    // Graphs
-    var ctx = document.getElementById('myChart')
-    // eslint-disable-next-line no-unused-vars
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: [
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday'
-        ],
-        datasets: [{
-          data: [
-            15339,
-            21345,
-            18483,
-            24003,
-            23489,
-            24092,
-            12034
-          ],
-          lineTension: 0,
-          backgroundColor: 'transparent',
-          borderColor: '#007bff',
-          borderWidth: 4,
-          pointBackgroundColor: '#007bff'
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: false
+        var fd = new FormData();
+        var files = $('#file')[0].files[0];
+        fd.append('file',files);
+
+        $.ajax({
+            url: 'upload.php',
+            type: 'post',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function(response){
+                if(response == 0){
+                    alert('Vui lòng upload file ảnh dưới 100mb');
+                }else{
+                    $("#js-imgProduct").attr("src",response);
+                }
             }
-          }]
-        },
-        legend: {
-          display: false
-        }
-      }
-    })
-  }())
+        });
+    });
+});

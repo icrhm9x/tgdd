@@ -1,4 +1,26 @@
 <?php
+
+//ham query insert
+function insert($table, array $data){
+    global $connect;
+    $sql = "INSERT INTO {$table} ";
+    $columns = implode(',', array_keys($data));
+    $values = "";
+    $sql .= "(" . $columns . ")";
+    foreach ($data as $value) {
+            $values .= "'". mysqli_real_escape_string($connect, xss_clean($value)) ."',";
+    }
+    $values = substr($values, 0, -1);
+    $sql .= " VALUES (" . $values . ")";
+    $query = mysqli_query($connect, $sql);
+    return mysqli_affected_rows($connect);
+}
+
+//
+function postInput($str){
+    return isset($_POST[$str]) ? $_POST[$str] : '';
+}
+
 // ham slug bang php
 function to_slug($str)
 {
@@ -51,3 +73,16 @@ function xss_clean($data)
         // we are done...
         return $data;
     }
+
+// xóa tất cả các file trong 1 thư mục
+function recursiveDelete($str) {
+    if (is_file($str)) {
+        return @unlink($str);
+    }
+    elseif (is_dir($str)) {
+        $scan = glob(rtrim($str,'/').'/*');
+        foreach($scan as $index=>$path) {
+            recursiveDelete($path);
+        }
+    }
+}

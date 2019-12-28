@@ -23,6 +23,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <li class="breadcrumb-item active" aria-current="page">Thêm danh mục</li>
         </ol>
     </nav>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
+        <h1 class="h2">Thêm danh mục</h1>
+    </div>
     <?php if (isset($_SESSION['error'])) : ?>
         <div class="alert alert-danger">
             <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
@@ -30,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <?php endif; ?>
     <form method="POST">
         <div class="form-group">
-            <label class="font-weight-bold" for="cat_name">Tên danh mục</label>
+            <label for="cat_name">Tên danh mục:</label>
             <input required class="form-control" id="cat_name" name="cat_name" placeholder="Tên danh mục">
         </div>
         <button type="submit" class="btn btn-primary">Lưu</button>
