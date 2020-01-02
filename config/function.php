@@ -1,4 +1,5 @@
 <?php
+// ****************** function query ******************
 
 //ham query insert
 function insert($table, array $data){
@@ -8,12 +9,48 @@ function insert($table, array $data){
     $values = "";
     $sql .= "(" . $columns . ")";
     foreach ($data as $value) {
+        if(is_string($value)) {
             $values .= "'". mysqli_real_escape_string($connect, xss_clean($value)) ."',";
+        }else{
+            $values .= mysqli_real_escape_string($connect, xss_clean($value)) .",";
+        }
     }
+    // xoa dau phay cuoi cau
     $values = substr($values, 0, -1);
     $sql .= " VALUES (" . $values . ")";
     $query = mysqli_query($connect, $sql);
     return mysqli_affected_rows($connect);
+}
+//ham update
+function update($table, array $data, array $conditions) {
+    global $connect;
+        $sql = "UPDATE {$table}";
+        $set = " SET ";
+        $where = " WHERE ";
+        foreach($data as $field => $value) {
+            if(is_string($value)) {
+                $set .= $field .'='.'\''. mysqli_real_escape_string($connect, xss_clean($value)) .'\',';
+            } else {
+                $set .= $field .'='. mysqli_real_escape_string($connect, xss_clean($value)) . ',';
+            }
+        }
+        // xoa dau phay cuoi cau
+        $set = substr($set, 0, -1);
+
+        foreach($conditions as $field => $value) {
+            if(is_string($value)) {
+                $where .= $field .'='.'\''. mysqli_real_escape_string($connect, xss_clean($value)) .'\' AND ';
+            } else {
+                $where .= $field .'='. mysqli_real_escape_string($connect, xss_clean($value)) . ' AND ';
+            }
+        }
+        // xóa chữ AND và 2 khoảng trắng = 5 kí tự
+        $where = substr($where, 0, -5);
+
+        $sql .= $set . $where;
+        $query = mysqli_query($connect, $sql);
+
+        return mysqli_affected_rows($connect);
 }
 
 //
@@ -85,4 +122,56 @@ function recursiveDelete($str) {
             recursiveDelete($path);
         }
     }
+}
+
+// phân trang
+function pagination($sql,$rows_per_page,$currentPage,$conn)
+{
+    // lấy URL hiện tại và xóa biến page
+    $currentUrl=str_replace('&page='.$currentPage,'',$_SERVER['REQUEST_URI']);
+    
+    // Lấy tổng bản ghi của cả bảng
+    $total_rows=mysqli_num_rows(mysqli_query($conn,$sql));
+    $total_pages= ceil($total_rows/$rows_per_page);
+    $paginate='<ul class="pagination">';
+    if($currentPage<=1)
+    {
+        $paginate.='
+        <li class="page-item disabled">
+        <a class="page-link">&laquo;</a>
+        </li>';
+    }
+    else
+    {
+        $paginate.='
+        <li class="page-item">
+        <a class="page-link" href="'.$currentUrl.'&page='.($currentPage-1).'">&laquo;</a>
+        </li>';
+    }
+   
+    //đường dẫn trang
+    for ($i=1; $i <= $total_pages; $i++) { 
+        if($currentPage==$i) 
+        {
+            $active='active';
+        }
+        else
+        {
+            $active='';
+        }
+        $paginate.='
+        <li class="page-item '.$active.'"><a class="page-link" href="'.$currentUrl.'&page='.$i.'">'.$i.'</a></li>
+        ';
+    }
+    if($currentPage>=$total_pages)
+    {
+        $paginate.='<li class="page-item disabled"><a class="page-link" >&raquo;</a></li>';
+    }
+    else
+    {
+        $paginate.='<li class="page-item"><a class="page-link" href="'.$currentUrl.'&page='.($currentPage+1).'">&raquo;</a></li>';
+    }
+   
+    $paginate.='</ul>';
+    return $paginate;
 }

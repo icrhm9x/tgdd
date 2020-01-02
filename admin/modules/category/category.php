@@ -4,7 +4,7 @@ $query = mysqli_query($connect, "SELECT * FROM category ORDER BY cat_id ASC");
 <script>
 function delCat(name)
 {
-return confirm('bạn muốn xóa sản phẩm: '+name+' ?');
+return confirm('bạn muốn xóa danh mục: '+name+' ?');
 }
 </script>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">

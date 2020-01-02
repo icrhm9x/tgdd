@@ -1,6 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $cat_name = xss_clean($_POST['cat_name']);
+    $cat_name = mysqli_real_escape_string($connect, xss_clean($_POST['cat_name']));
     // check duplicate cat_name
     $sql = "SELECT * FROM category WHERE cat_name = '$cat_name'";
     $query = mysqli_query($connect, $sql);

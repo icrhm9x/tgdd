@@ -1,10 +1,13 @@
 <?php
+if(!defined('SECURITY')){
+	header('location: ../../index.php');
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data =
         [
             "prd_name"          => postInput('prd_name'),
             "prd_slug"          => to_slug(postInput('prd_name')),
-            "prd_maker"         => postInput('prd_maker'),
+            "brand_id"          => postInput('brand_id'),
             "prd_price"         => postInput('prd_price'),
             "prd_sale"          => postInput('prd_sale'),
             "prd_warranty"      => postInput('prd_warranty'),
@@ -44,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($affected_rows > 0) {
             move_uploaded_file($file_tmp, "img/product/".$rename);
+            // xóa ảnh trong thư mục tạm
             recursiveDelete("img/temporary");
             $_SESSION['success'] = "Thêm mới thành công";
             header('location: index.php?page_layout=product');
@@ -54,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
-$sql = "SELECT * FROM category ORDER BY cat_id ASC";
-$query = mysqli_query($connect, $sql);
+$query_cat = mysqli_query($connect, "SELECT * FROM category ORDER BY cat_id ASC");
+$query_bra = mysqli_query($connect, "SELECT * FROM brand ORDER BY brand_id ASC");
 
 ?>
 <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
@@ -78,8 +82,12 @@ $query = mysqli_query($connect, $sql);
                     <input required name="prd_name" type="text" class="form-control" value="<?php if(isset($data['prd_name'])){echo $data['prd_name'];} ?>">
                 </div>
                 <div class="form-group">
-                    <label>Hãng sản xuất:</label>
-                    <input required name="prd_maker" type="text" class="form-control" value="<?php if(isset($data['prd_maker'])){echo $data['prd_maker'];} ?>">
+                    <label>Thương hiệu</label>
+                    <select name="brand_id" class="form-control">
+                    <?php while($row_brand = mysqli_fetch_assoc($query_bra)){ ?>
+                        <option value=<?php echo $row_brand['brand_id']; ?> <?php if(isset($data['brand_id']) && $row_brand['brand_id']==$data['brand_id']){echo 'selected';} ?>><?php echo $row_brand['brand_name']; ?></option>
+                    <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Giá sản phẩm:</label>
@@ -116,15 +124,15 @@ $query = mysqli_query($connect, $sql);
                     <input required name="file" id="file" type="file" class="form-control-file">
                     <br>
                     <div class="Add-product__image">
-                        <img src="" class="img-fluid" id="js-imgProduct">
+                        <img src="" class="img-fluid" id="js-img">
                     </div>
-                    <input type="button" class="btn btn-primary btn-sm mt-3" value="Upload" id="js-uploadFilePrd">
+                    <input type="button" class="btn btn-primary btn-sm mt-3" value="Upload" id="js-uploadFile">
                 </div>
                 <div class="form-group">
                     <label>Danh mục</label>
                     <select name="cat_id" class="form-control">
-                    <?php while($row = mysqli_fetch_assoc($query)){ ?>
-                        <option value=<?php echo $row['cat_id']; ?> <?php if(isset($data['cat_id']) && $row['cat_id']==$data['cat_id']){echo 'selected';} ?>><?php echo $row['cat_name']; ?></option>
+                    <?php while($row_cat = mysqli_fetch_assoc($query_cat)){ ?>
+                        <option value=<?php echo $row_cat['cat_id']; ?> <?php if(isset($data['cat_id']) && $row_cat['cat_id']==$data['cat_id']){echo 'selected';} ?>><?php echo $row_cat['cat_name']; ?></option>
                     <?php } ?>
                     </select>
                 </div>
@@ -164,6 +172,3 @@ $query = mysqli_query($connect, $sql);
         </div>
     </form>
 </main>
-<script>
-    
-</script>

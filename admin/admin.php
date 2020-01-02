@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -17,11 +18,11 @@
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Thế giới di động</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">Thế giới di động</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" href="logout.php">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -44,6 +45,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link <?php if($_GET['page_layout']=='brand'){echo 'active';} ?>" href="index.php?page_layout=brand">
+                                <span data-feather="file"></span>
+                                Thương hiệu
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link <?php if($_GET['page_layout']=='product'){echo 'active';} ?>" href="index.php?page_layout=product">
                                 <span data-feather="shopping-cart"></span>
                                 Sản phẩm
@@ -51,7 +58,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php if($_GET['page_layout']=='order'){echo 'active';} ?>" href="#">
-                                <span data-feather="file"></span>
+                                <span data-feather="file-text"></span>
                                 Đơn hàng
                             </a>
                         </li>
@@ -84,10 +91,16 @@
                     case 'add_category': include_once('modules/category/add_category.php'); break;
                     case 'edit_category': include_once('modules/category/edit_category.php'); break;
                     case 'del_category': include_once('modules/category/del_category.php'); break;
+                    //brand
+                    case 'brand': include_once('modules/brand/brand.php'); break;
+                    case 'add_brand': include_once('modules/brand/add_brand.php'); break;
+                    case 'edit_brand': include_once('modules/brand/edit_brand.php'); break;
+                    case 'del_brand': include_once('modules/brand/del_brand.php'); break;
                     //product
                     case 'product': include_once('modules/product/product.php'); break;
                     case 'add_product': include_once('modules/product/add_product.php'); break;
                     case 'edit_product': include_once('modules/product/edit_product.php'); break;
+                    case 'del_product': include_once('modules/product/del_product.php'); break;
                     //default
                     default: include_once('sub_admin.php'); break;
                 }

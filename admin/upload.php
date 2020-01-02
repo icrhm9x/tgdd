@@ -1,5 +1,5 @@
 <?php
-if($_FILES["file"]["name"] != ''){
+if(isset($_FILES["file"]["name"]) && $_FILES["file"]["name"] != ''){
    /* Getting file name */
    $file_name = $_FILES['file']['name'];
    $file_size = $_FILES['file']['size'];

@@ -129,8 +129,13 @@ label{
   }
 
   /******************* product *******************/
-  .Product__image{
+  .Product__image,
+  .Brand__image{
     width: 100px;
+  }
+  .Add-brand__image>img{
+    width: 150px;
+    border: 1px solid #999;
   }
   .Add-product__image img{
     width: 200px;

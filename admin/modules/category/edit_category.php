@@ -22,8 +22,10 @@ if(isset($_GET['cat_id']) && filter_var($_GET['cat_id'], FILTER_VALIDATE_INT)){
         }
     }else{
         $_SESSION['error'] = "Dữ liệu không tồn tại";
+        header('location: index.php?page_layout=category');
     }
 }else{
+    $_SESSION['error'] = "Dữ liệu không tồn tại";
     header('location: index.php?page_layout=category');
 }
 ?>
@@ -35,11 +37,6 @@ if(isset($_GET['cat_id']) && filter_var($_GET['cat_id'], FILTER_VALIDATE_INT)){
             <li class="breadcrumb-item active" aria-current="page">Cập nhật danh mục</li>
         </ol>
     </nav>
-    <?php if (isset($_SESSION['error'])) : ?>
-        <div class="alert alert-danger">
-            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-        </div>
-    <?php endif; ?>
     <form method="POST">
         <div class="form-group">
             <label class="font-weight-bold" for="cat_name">Tên danh mục</label>

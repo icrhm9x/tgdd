@@ -2,7 +2,7 @@ $(function() {
     // Handler for .ready() called.
     
     // ajax upload ảnh
-    $("#js-uploadFilePrd").click(function(){
+    $("#js-uploadFile").click(function(){
 
         var fd = new FormData();
         var files = $('#file')[0].files[0];
@@ -16,9 +16,9 @@ $(function() {
             processData: false,
             success: function(response){
                 if(response == 0){
-                    alert('Vui lòng upload file ảnh dưới 100mb');
+                    alert('Vui lòng upload file, có phần mở rộng là .jpg .jpeg .png và dung lượng dưới 100mb');
                 }else{
-                    $("#js-imgProduct").attr("src",response);
+                    $("#js-img").attr("src",response);
                 }
             }
         });
