@@ -19,7 +19,7 @@ if(isset($_FILES["file"]["name"]) && $_FILES["file"]["name"] != ''){
       $uploadOk = 0;
    }
    /* Check file size */
-   if($file_size > 102400){
+   if($file_size > 307200){
       $uploadOk = 0;
    }
 

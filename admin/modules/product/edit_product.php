@@ -40,16 +40,21 @@ if(isset($_GET['prd_id']) && filter_var($_GET['prd_id'], FILTER_VALIDATE_INT, ar
             if($_FILES['file']['name']==''){
                 $data['prd_image'] = $prd_data['prd_image'];
             }else{
+                // img
                 $file_name = $_FILES['file']['name'];
                 $file_tmp = $_FILES['file']['tmp_name'];
+                $file_size = $_FILES['file']['size'];
+                // tao mot array de xem file upload co thuoc dinh dang cho phep
+                $allowed = array("jpeg","jpg","png");
+                // lấy đuôi file
                 $ext = strtolower(end(explode('.',$file_name)));
-                $rename = uniqid(rand(), true).'.'.$ext;
-            
-                $data['prd_image'] = $rename;
-                // xóa ảnh sản phẩm cũ
-                if (file_exists('img/product/'.$prd_data['prd_image'])){
-                    unlink('img/product/'.$prd_data['prd_image']);
+                if (!in_array($ext, $allowed) || $file_size > 307200) {
+                    $errors['file'] = "Vui lòng upload file, có phần mở rộng là .jpg .jpeg .png và dung lượng dưới 200mb";
                 }
+
+                $rename = uniqid(rand(), true).'.'.$ext;
+
+                $data['prd_image'] = $rename;
 
             }
             
@@ -60,6 +65,12 @@ if(isset($_GET['prd_id']) && filter_var($_GET['prd_id'], FILTER_VALIDATE_INT, ar
                 if ($affected_rows > 0) {
                     move_uploaded_file($file_tmp, "img/product/".$rename);
                     recursiveDelete("img/temporary");
+                    // xóa ảnh sản phẩm cũ
+                    if($_FILES['file']['name']!=''){
+                        if (file_exists('img/product/'.$prd_data['prd_image'])){
+                            unlink('img/product/'.$prd_data['prd_image']);
+                        }
+                    }
                     $_SESSION['success'] = "Cập nhật thành công";
                     header('location: index.php?page_layout=product');
         
@@ -145,6 +156,9 @@ $query_bra = mysqli_query($connect, "SELECT * FROM brand ORDER BY brand_id ASC")
                         <img src="img/product/<?php if(isset($prd_data['prd_image'])){echo $prd_data['prd_image'];} ?>" class="img-fluid" id="js-img">
                     </div>
                     <input type="button" class="btn btn-primary btn-sm mt-3" value="Upload" id="js-uploadFile">
+                    <?php if (isset($errors['file'])) : ?>
+                            <p class="text-danger"><?php echo $errors['file'] ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label>Danh mục</label>

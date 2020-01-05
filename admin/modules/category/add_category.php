@@ -1,6 +1,13 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $cat_name = mysqli_real_escape_string($connect, xss_clean($_POST['cat_name']));
+    $cat_icon = mysqli_real_escape_string($connect, xss_clean($_POST['cat_icon']));
+    // nổi bật
+    if(isset($_POST['cat_featured'])){
+        $cat_featured = 1;
+    }else{
+        $cat_featured = 0;
+    }
     // check duplicate cat_name
     $sql = "SELECT * FROM category WHERE cat_name = '$cat_name'";
     $query = mysqli_query($connect, $sql);
@@ -8,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['error'] = "Tên danh mục đã tồn tại.";
     }else{
         $cat_slug = to_slug($cat_name);
-        $sql = "INSERT INTO category (cat_name, cat_slug) VALUES ('$cat_name','$cat_slug')";
+        $sql = "INSERT INTO category (cat_name, cat_slug, cat_icon, cat_featured) VALUES ('$cat_name','$cat_slug','$cat_icon','$cat_featured')";
         $query = mysqli_query($connect, $sql);
         $_SESSION['success'] = "Thêm mới thành công";
         header('location: index.php?page_layout=category');
@@ -32,10 +39,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
     <?php endif; ?>
     <form method="POST">
-        <div class="form-group">
-            <label for="cat_name">Tên danh mục:</label>
-            <input required class="form-control" id="cat_name" name="cat_name" placeholder="Tên danh mục">
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="cat_name">Tên danh mục:</label>
+                <input required class="form-control" id="cat_name" name="cat_name" placeholder="Tên danh mục">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="cat_icon">Icon:</label>
+                <select name="cat_icon" class="form-control">
+                    <option value="fas fa-mobile-alt">Điện thoại</option>
+                    <option value="fas fa-tablet-alt">Tablet</option>
+                    <option value="fas fa-laptop-code">Laptop</option>
+                    <option value="fas fa-headphones-alt">Phụ kiện</option>
+                    <option value="far fa-clock">Đồng hồ</option>
+                </select>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Lưu</button>
+        <div class="form-group">
+            <label>Danh mục nổi bật</label>
+            <div class="form-check">
+                <input class="form-check-input" name="cat_featured" type="checkbox" value="1" id="cat_featured">
+                <label class="form-check-label font-weight-normal" for="cat_featured">
+                    Nổi bật
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm</button>
     </form>
 </main>

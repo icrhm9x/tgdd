@@ -5,7 +5,7 @@
         $page = 1;
     }
     //gán số lượng sp cần hiển thị tren 1 trang
-    $rows_per_page = 7;
+    $rows_per_page = 10;
     //công thức
     $per_row = $page * $rows_per_page - $rows_per_page;
     

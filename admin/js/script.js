@@ -16,7 +16,7 @@ $(function() {
             processData: false,
             success: function(response){
                 if(response == 0){
-                    alert('Vui lòng upload file, có phần mở rộng là .jpg .jpeg .png và dung lượng dưới 100mb');
+                    alert('Vui lòng upload file, có phần mở rộng là .jpg .jpeg .png và dung lượng dưới 200mb');
                 }else{
                     $("#js-img").attr("src",response);
                 }

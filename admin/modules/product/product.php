@@ -70,7 +70,7 @@ return confirm('bạn muốn xóa sản phẩm: '+name+' ?');
                 </td>
                 <td><?php echo $data['cat_name'] ?></td>
                 <td><?php echo $data['brand_name'] ?></td>
-                <td><img src="img/product/<?php echo $data['prd_image'] ?>" class="img-fluid Product__image"></td>
+                <td style="height:125px" ><img src="img/product/<?php echo $data['prd_image'] ?>" class="img-fluid Product__image"></td>
                 <td><h6><span class="badge 
                 <?php if($data['prd_status']==1){echo 'badge-success';}elseif($data['prd_status']==2){echo 'badge-warning';}else{echo 'badge-secondary';} ?>">
                 <?php if($data['prd_status']==1){echo 'Còn hàng';}elseif($data['prd_status']==2){echo 'Sắp ra mắt';}else{echo 'Hết hàng';} ?></span></h6></td>

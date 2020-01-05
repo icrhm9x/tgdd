@@ -129,14 +129,20 @@ label{
   }
 
   /******************* product *******************/
-  .Product__image,
-  .Brand__image{
+  .Cat_icon{
+    font-size: 24px;
+  }
+  .Product__image{
     width: 100px;
+  }
+  
+  .Brand__image{
+    height: 25px;
   }
   .Add-brand__image>img{
     width: 150px;
     border: 1px solid #999;
   }
-  .Add-product__image img{
+  .Add-product__image>img{
     width: 200px;
   }
