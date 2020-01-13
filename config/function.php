@@ -19,7 +19,7 @@ function insert($table, array $data){
     $values = substr($values, 0, -1);
     $sql .= " VALUES (" . $values . ")";
     $query = mysqli_query($connect, $sql);
-    return mysqli_affected_rows($connect);
+    return mysqli_insert_id($connect);
 }
 //ham update
 function update($table, array $data, array $conditions) {
@@ -51,11 +51,6 @@ function update($table, array $data, array $conditions) {
         $query = mysqli_query($connect, $sql);
 
         return mysqli_affected_rows($connect);
-}
-
-//
-function postInput($str){
-    return isset($_POST[$str]) ? $_POST[$str] : '';
 }
 
 // ham slug bang php
@@ -174,4 +169,8 @@ function pagination($sql,$rows_per_page,$currentPage,$conn)
    
     $paginate.='</ul>';
     return $paginate;
+}
+//
+function postInput($str){
+    return isset($_POST[$str]) ? xss_clean($_POST[$str]) : '';
 }

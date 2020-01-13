@@ -1,0 +1,121 @@
+/*************** Footer ***************/
+
+footer{
+    width: 100%;
+    margin-top: 50px;
+}
+.Footer-top{
+    background: #fff;
+}
+.Footer-top-content{
+    display: flex;
+    padding: 30px 0 20px 0;
+}
+.Footer-top-content-item{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding-left: 10px;
+}
+.Footer-top-content-item:nth-child(3){
+    padding-left: 30px;
+}
+.Footer-top-content-item__link{
+    margin: 8px 0;
+    color: #288ad6;
+}
+.Footer-top-content-item__contact{
+    margin: 8px 0;
+    color: #666;
+    line-height: 18px;
+}
+.Footer-top-content-item__contact>a{
+    font-weight: bold;
+    color: #333;
+    padding: 0 5px;
+}
+.Footer-top-content-item-social{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+.Footer-top-content-item-social>a{
+    display: flex;
+    padding: 0 20px;
+    color: #288ad6;
+}
+.Footer-top-content-item-social__fb{
+    border-right: 1px solid #919191;
+}
+.Footer-top-content-item-social__fb>i{
+    font-size: 20px;
+    margin-right: 5px;
+    color: #002bec;
+}
+.Footer-top-content-item-social__ytb>i{
+    font-size: 20px;
+    margin-right: 5px;
+    color: #ec0000;
+}
+.Footer-top-content-item-social p{
+    margin-top: 3px;
+}
+.Footer-bot{
+    background: #f8f8f8;
+    padding: 15px 0;
+}
+.Footer-bot-txt{
+    display: flex;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    line-height: 14px;
+}
+.Footer-bot-txt>a{
+    margin-left: 3px;
+    font-size: 10px;
+    color: #999;
+}
+@media screen and (max-width: 1024px) {
+    .Footer-top-content-item{
+        width: 33.33%;
+    }
+    .Footer-top-content-item:nth-child(4){
+        display: none;
+    }
+    .Footer-bot-txt>a{
+        display: none;
+    }
+}
+@media screen and (max-width: 576px) {
+    .Footer-top-content-item{
+        width: 100%;
+    }
+    .Footer-top-content-item:nth-child(1),
+    .Footer-top-content-item:nth-child(2){
+        display: none;
+    }
+}
+
+
+/*************** Btn back to top ***************/
+.Backtotop__Btn{
+    display: none;
+}
+.Backtotop__Btn::before{
+    content: "▲";
+    position: fixed;
+    right: 20px;
+    bottom: 45px;
+    cursor: pointer;
+    background: #fdd504;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: #000;
+    opacity: .7;
+    z-index: 1;
+    border-radius: 5px;
+}

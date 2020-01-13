@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data['prd_image'] = $rename;
     
     if (empty($errors)){
-        $affected_rows = insert("product", $data);
+        $prd_id = insert("product", $data);
 
-        if ($affected_rows > 0) {
+        if ($prd_id > 0) {
             move_uploaded_file($file_tmp, "img/product/".$rename);
             // xóa ảnh trong thư mục tạm
             recursiveDelete("img/temporary");

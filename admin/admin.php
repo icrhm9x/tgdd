@@ -57,15 +57,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if($_GET['page_layout']=='order'){echo 'active';} ?>" href="#">
-                                <span data-feather="file-text"></span>
-                                Đơn hàng
+                            <a class="nav-link <?php if($_GET['page_layout']=='customer'){echo 'active';} ?>" href="index.php?page_layout=customer">
+                                <span data-feather="users"></span>
+                                Khách hàng
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if($_GET['page_layout']=='user'){echo 'active';} ?>" href="index.php?page_layout=user">
-                                <span data-feather="users"></span>
-                                Người dùng
+                            <a class="nav-link <?php if($_GET['page_layout']=='transaction'){echo 'active';} ?>" href="index.php?page_layout=transaction">
+                                <span data-feather="file-text"></span>
+                                Đơn hàng
                             </a>
                         </li>
                         <li class="nav-item">
@@ -82,10 +82,9 @@
             //Master page here!
             if(isset($_GET['page_layout'])){
                 switch ($_GET['page_layout']) {
-                    //user
-                    case 'user': include_once('modules/user/user.php'); break;
-                    case 'add_user': include_once('modules/user/add_user.php'); break;
-                    case 'edit_user': include_once('modules/user/edit_user.php'); break;
+                    //customer
+                    case 'customer': include_once('modules/customer/customer.php'); break;
+                    case 'del_customer': include_once('modules/customer/del_customer.php'); break;
                     //category
                     case 'category': include_once('modules/category/category.php'); break;
                     case 'add_category': include_once('modules/category/add_category.php'); break;
@@ -101,6 +100,9 @@
                     case 'add_product': include_once('modules/product/add_product.php'); break;
                     case 'edit_product': include_once('modules/product/edit_product.php'); break;
                     case 'del_product': include_once('modules/product/del_product.php'); break;
+                    //transaction
+                    case 'transaction': include_once('modules/transaction/transaction.php'); break;
+                    case 'del_trans': include_once('modules/transaction/del_trans.php'); break;
                     //default
                     default: include_once('sub_admin.php'); break;
                 }

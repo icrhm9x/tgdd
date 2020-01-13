@@ -19,7 +19,7 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
     insertHeadLink();
     insertCSS('/tgdd/css/header.css');
     insertCSS('/tgdd/css/footer.css');
-    insertCSS('/tgdd/css/style.css');
+    insertCSS('/tgdd/css/product.css');
     insertCSS('/tgdd/css/btn_cart.css');
     ?>
 </head>
@@ -30,40 +30,16 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
     include_once('modules/header/header.php');
     include_once('modules/header/header_sp.php');
     ?>
-    <!----------------  Banner  ----------------->
-    <div class="Responsive">
-        <div class="Banner">
-        <?php
-        include_once('modules/banner/carousel.php');
-        include_once('modules/banner/banner.php');
-        ?>
-        </div>
-    </div>
-    <!----------------  Content  ----------------->
-    <?php
-    if(isset($_GET['page_layout'])){
-        switch($_GET['page_layout']){
-            case 'cart': include_once('modules/cart/cart.php'); break;
-            case 'category': include_once('modules/category/category.php'); break;
-            case 'product': include_once('modules/product/product.php'); break;
-            case 'search': include_once('modules/search/search.php'); break;
-            case 'success': include_once('modules/cart/success.php'); break;
-            default: include_once('modules/product/product.php');
-        }
-    }else{
-        include_once('modules/promotion/promotion.php');
-        include_once('modules/featured/featured.php');
-    }
-    ?>
+    <!----------------  Product  ---------------->
+    <?php include_once('modules/product/prd.php'); ?>
     <!----------------  btn cart  ----------------->
     <?php include_once('modules/cart/btn_cart.php'); ?>
+    
     <!----------------  Footer  ----------------->
     <?php include_once('modules/footer/footer.php'); ?>
     <!----------------  Btn back to top  ----------------->
     <?php include_once('modules/btn_backtotop/btn_backtotop.php') ?>
     <?php insertJS('/tgdd/js/btnBackToTop.js') ?>
-    <!----------------  custom JS  ----------------->
-    <?php insertJS('/tgdd/js/script.js') ?>
 </body>
 
 </html>

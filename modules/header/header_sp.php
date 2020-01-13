@@ -25,10 +25,10 @@
                 <div class="Nav-menu-content">
                     <div class="Nav-menu-content-list">
                         <?php
-                        $query_cat = mysqli_query($connect, "SELECT * FROM category WHERE cat_featured = 1 ORDER BY cat_id ASC");
+                        $query_cat = mysqli_query($connect, "SELECT * FROM category ORDER BY cat_id ASC");
                         while($data_cat = mysqli_fetch_assoc($query_cat)){
                         ?>
-                        <a class="Nav-menu-content-item" href="#">
+                        <a class="Nav-menu-content-item" href="index.php?page_layout=category&cat_id=<?php echo $data_cat['cat_id'] ?>">
                             <h3><?php echo $data_cat['cat_name'] ?></h3>
                         </a>
                         <?php } ?>

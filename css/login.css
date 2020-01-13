@@ -1,0 +1,63 @@
+.cvbox{
+    margin-bottom: 30px;
+}
+.remember{
+    margin-bottom: 3px;
+    color: #919191;
+}
+.remember>label{
+    line-height: 20px;
+}
+.Btn_login{
+    margin-top: 10px;
+}
+.Btn_login>button{
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    background: #30a5ff;
+    border: none;
+    cursor: pointer;
+}
+.divider{
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+.divider>p{
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 8px 0 7px;
+}
+.divider::after{
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
+}
+.register{
+    text-align: center;
+}
+.register__btn{
+    border: 1px solid #adb1b8;
+    padding: 6px 100px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+}

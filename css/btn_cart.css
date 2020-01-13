@@ -1,0 +1,28 @@
+.btn_cart{
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    color: #ec1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btn_cart>i{
+    font-size: 40px;
+}
+.btn_cart>span{
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    font-size: 14px;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ec1f1f;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
