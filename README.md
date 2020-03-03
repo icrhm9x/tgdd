@@ -1,4 +1,11 @@
 # tgdd
 clone page tgdd
-front end: html css (flexbox, BEM) jquery ajax
-back end: php thuần
+
+## front-end
+- html
+- css (flexbox, BEM)
+- responsive
+- jquery - ajax
+
+## back-end
+- php thuần
