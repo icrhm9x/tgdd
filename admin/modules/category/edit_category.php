@@ -62,11 +62,11 @@ if(isset($_GET['cat_id']) && filter_var($_GET['cat_id'], FILTER_VALIDATE_INT)){
             </div>
         </div>
         <div class="form-group">
-            <label>Danh mục nổi bật</label>
+            <label>Trạng thái</label>
             <div class="form-check">
                 <input class="form-check-input" name="cat_featured" type="checkbox" value="1" id="cat_featured" <?php if(isset($data['cat_featured']) && $data['cat_featured']==1){echo 'checked';} ?>>
                 <label class="form-check-label font-weight-normal" for="cat_featured">
-                    Nổi bật
+                    Hiển thị
                 </label>
             </div>
         </div>

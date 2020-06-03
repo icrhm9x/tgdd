@@ -68,12 +68,6 @@
                                 Đơn hàng
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php if($_GET['page_layout']=='article'){echo 'active';} ?>" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Tin tức
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </nav>

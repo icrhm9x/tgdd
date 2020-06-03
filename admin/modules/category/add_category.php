@@ -1,19 +1,19 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cat_name = mysqli_real_escape_string($connect, xss_clean($_POST['cat_name']));
     $cat_icon = mysqli_real_escape_string($connect, xss_clean($_POST['cat_icon']));
     // nổi bật
-    if(isset($_POST['cat_featured'])){
+    if (isset($_POST['cat_featured'])) {
         $cat_featured = 1;
-    }else{
+    } else {
         $cat_featured = 0;
     }
     // check duplicate cat_name
     $sql = "SELECT * FROM category WHERE cat_name = '$cat_name'";
     $query = mysqli_query($connect, $sql);
-    if(mysqli_num_rows($query) > 0){
+    if (mysqli_num_rows($query) > 0) {
         $_SESSION['error'] = "Tên danh mục đã tồn tại.";
-    }else{
+    } else {
         $cat_slug = to_slug($cat_name);
         $sql = "INSERT INTO category (cat_name, cat_slug, cat_icon, cat_featured) VALUES ('$cat_name','$cat_slug','$cat_icon','$cat_featured')";
         $query = mysqli_query($connect, $sql);
@@ -35,7 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
     <?php if (isset($_SESSION['error'])) : ?>
         <div class="alert alert-danger">
-            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            <?php echo $_SESSION['error'];
+            unset($_SESSION['error']); ?>
         </div>
     <?php endif; ?>
     <form method="POST">
@@ -56,11 +57,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
         <div class="form-group">
-            <label>Danh mục nổi bật</label>
+            <label>Trạng thái</label>
             <div class="form-check">
                 <input class="form-check-input" name="cat_featured" type="checkbox" value="1" id="cat_featured">
                 <label class="form-check-label font-weight-normal" for="cat_featured">
-                    Nổi bật
+                    Hiển thị
                 </label>
             </div>
         </div>

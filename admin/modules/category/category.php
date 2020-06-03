@@ -38,7 +38,7 @@ return confirm('bạn muốn xóa danh mục: '+name+' ?');
                 <th scope="col">#</th>
                 <th scope="col">Tên danh mục</th>
                 <th scope="col">Icon</th>
-                <th scope="col">Nổi bật</th>
+                <th scope="col">Hiển thị</th>
                 <th scope="col">Ngày thêm</th>
                 <th scope="col">Thao tác</th>
             </tr>
@@ -50,12 +50,16 @@ return confirm('bạn muốn xóa danh mục: '+name+' ?');
                 <td><?php echo $data['cat_name'] ?></td>
                 <td><i class="<?php echo $data['cat_icon'] ?> Cat_icon"></i></td>
                 <td><h6><a href="#" class="badge 
-                <?php if($data['cat_featured']==1){echo 'badge-danger';}else{echo 'badge-secondary';} ?>">
-                <?php if($data['cat_featured']==1){echo 'Nổi bật';}else{echo 'Không';} ?></a></h6></td>
+                <?php if($data['cat_featured']==1){echo 'badge-success';}else{echo 'badge-secondary';} ?>">
+                <?php if($data['cat_featured']==1){echo 'Hiển thị';}else{echo 'Không';} ?></a></h6></td>
                 <td><?php echo $data['created_at'] ?></td>
                 <td>
-                    <a href="index.php?page_layout=edit_category&cat_id=<?php echo $data['cat_id'] ?>"><button type="button" class="btn btn-outline-primary btn-sm"><i class="fas fa-pencil-alt"></i>sửa</button></a>
-                    <a onclick="return delCat('<?php echo $data['cat_name'];?>')" href="index.php?page_layout=del_category&cat_id=<?php echo $data['cat_id'] ?>"><button type="button" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i>xóa</button></a>
+                    <a href="index.php?page_layout=edit_category&cat_id=<?php echo $data['cat_id'] ?>">
+                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="fas fa-pencil-alt"></i>sửa</button>
+                    </a>
+                    <a onclick="return delCat('<?php echo $data['cat_name'];?>')" href="index.php?page_layout=del_category&cat_id=<?php echo $data['cat_id'] ?>">
+                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i>xóa</button>
+                    </a>
                 </td>
             </tr>
             <?php } ?>

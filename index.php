@@ -46,7 +46,6 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
             case 'cart': include_once('modules/cart/cart.php'); break;
             case 'category': include_once('modules/category/category.php'); break;
             case 'product': include_once('modules/product/product.php'); break;
-            case 'search': include_once('modules/search/search.php'); break;
             case 'success': include_once('modules/cart/success.php'); break;
             default: include_once('modules/product/product.php');
         }

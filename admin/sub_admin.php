@@ -1,56 +1,96 @@
-
+<?php
+$countOrder = mysqli_num_rows(mysqli_query($connect, "SELECT tr_id FROM transaction"));
+$result = mysqli_query($connect, "SELECT SUM(tr_payment) as total FROM transaction");
+$row = mysqli_fetch_assoc($result);
+$totalSale = $row['total'];
+$countProduct = mysqli_num_rows(mysqli_query($connect, "SELECT prd_id FROM product"));
+$countCustomer = mysqli_num_rows(mysqli_query($connect, "SELECT cus_id FROM customer"));
+?>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-            </button>
-        </div>
     </div>
-
-    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
     <h2>Section title</h2>
-    <div class="table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
-                    <td>sit</td>
-                </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>amet</td>
-                    <td>consectetur</td>
-                    <td>adipiscing</td>
-                    <td>elit</td>
-                </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>amet</td>
-                    <td>consectetur</td>
-                    <td>adipiscing</td>
-                    <td>elit</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="index.php?page_layout=transaction"
+                               class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tổng số đơn hàng
+                            </a>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $countOrder ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh số (Tháng)
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <?php echo number_format($totalSale, 0, '', '.') ?>đ
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="index.php?page_layout=product"
+                               class="text-xs font-weight-bold text-info text-uppercase mb-1">Sản phẩm</a>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $countProduct ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="index.php?page_layout=customer"
+                               class="text-xs font-weight-bold text-warning text-uppercase mb-1">Khách hàng
+                            </a>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $countCustomer ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>

@@ -31,7 +31,7 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
     include_once('modules/header/header_sp.php');
     ?>
     <!----------------  Product  ---------------->
-    <?php include_once('modules/product/prd.php'); ?>
+    <?php include_once('modules/product/product.php'); ?>
     <!----------------  btn cart  ----------------->
     <?php include_once('modules/cart/btn_cart.php'); ?>
     

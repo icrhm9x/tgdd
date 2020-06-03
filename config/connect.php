@@ -1,7 +1,4 @@
 <?php
-// if(!defined('SECURITY')){
-// 	die('Bạn không có quyền truy cập vào file này!');
-// }
 
 $connect = mysqli_connect('localhost', 'root', '', 'tgdd');
 

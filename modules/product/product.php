@@ -102,6 +102,7 @@ if(isset($_GET['prd_id']) && filter_var($_GET['prd_id'], FILTER_VALIDATE_INT)){
                 <div class="Product-detail-rating-ctn">
                     <div class="Product-detail-rating-ctn-ico">4.2<i class="fas fa-star"></i></div>
                     <div class="Product-detail-rating-ctn-list">
+                        <?php for($i = 1; $i <= 5; $i++) { ?>
                         <div class="Product-detail-rating-ctn-item">
                             <span>5<i class="fas fa-star"></i></span>
                             <div class="Product-detail-rating-ctn-item-cl">
@@ -109,34 +110,7 @@ if(isset($_GET['prd_id']) && filter_var($_GET['prd_id'], FILTER_VALIDATE_INT)){
                             </div>
                             <p>29 đánh giá</p>
                         </div>
-                        <div class="Product-detail-rating-ctn-item">
-                            <span>5<i class="fas fa-star"></i></span>
-                            <div class="Product-detail-rating-ctn-item-cl">
-                                <div class="Product-detail-rating-ctn-item-cl-in"></div>
-                            </div>
-                            <p>29 đánh giá</p>
-                        </div>
-                        <div class="Product-detail-rating-ctn-item">
-                            <span>5<i class="fas fa-star"></i></span>
-                            <div class="Product-detail-rating-ctn-item-cl">
-                                <div class="Product-detail-rating-ctn-item-cl-in"></div>
-                            </div>
-                            <p>29 đánh giá</p>
-                        </div>
-                        <div class="Product-detail-rating-ctn-item">
-                            <span>5<i class="fas fa-star"></i></span>
-                            <div class="Product-detail-rating-ctn-item-cl">
-                                <div class="Product-detail-rating-ctn-item-cl-in"></div>
-                            </div>
-                            <p>29 đánh giá</p>
-                        </div>
-                        <div class="Product-detail-rating-ctn-item">
-                            <span>5<i class="fas fa-star"></i></span>
-                            <div class="Product-detail-rating-ctn-item-cl">
-                                <div class="Product-detail-rating-ctn-item-cl-in"></div>
-                            </div>
-                            <p>29 đánh giá</p>
-                        </div>
+                        <?php } ?>
                     </div>
                     <div class="Product-detail-rating-ctn-btn">
                         <a class="Product-detail-rating-ctn-btn__txt" href="#">
@@ -156,26 +130,13 @@ if(isset($_GET['prd_id']) && filter_var($_GET['prd_id'], FILTER_VALIDATE_INT)){
                     </a>
                 </form>
                 <div class="Product-detail-cmt-list">
+                    <?php for($i = 1; $i <= 5; $i++) { ?>
                     <div class="Product-detail-cmt-item">
                         <div class="Product-detail-cmt-item__name">mỹ Dung</div>
                         <div class="Product-detail-cmt-item__txt">Điện thoại có tính năng nâng cao không nhỉ?</div>
                         <div class="Product-detail-cmt-item__time">35 phút trước </div>
                     </div>
-                    <div class="Product-detail-cmt-item">
-                        <div class="Product-detail-cmt-item__name">Mỹ Dung</div>
-                        <div class="Product-detail-cmt-item__txt">Điện thoại có tính năng nâng cao không nhỉ?</div>
-                        <div class="Product-detail-cmt-item__time">35 phút trước </div>
-                    </div>
-                    <div class="Product-detail-cmt-item">
-                        <div class="Product-detail-cmt-item__name">Mỹ Dung</div>
-                        <div class="Product-detail-cmt-item__txt">Điện thoại có tính năng nâng cao không nhỉ?</div>
-                        <div class="Product-detail-cmt-item__time">35 phút trước </div>
-                    </div>
-                    <div class="Product-detail-cmt-item">
-                        <div class="Product-detail-cmt-item__name">Mỹ Dung</div>
-                        <div class="Product-detail-cmt-item__txt">Điện thoại có tính năng nâng cao không nhỉ?</div>
-                        <div class="Product-detail-cmt-item__time">35 phút trước </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
