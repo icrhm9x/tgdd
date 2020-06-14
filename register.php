@@ -12,8 +12,7 @@ if(isset($_SESSION['cus_id']) && isset($_SESSION['cus_name']) && isset($_SESSION
 }
 include_once('config/connect.php');
 include_once('config/function.php');
-define('DOC_ROOT', $_SERVER['DOCUMENT_ROOT']);
-require_once DOC_ROOT . '/tgdd/common/php/common.php';
+require_once __DIR__ . '\common\php\common.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +23,8 @@ require_once DOC_ROOT . '/tgdd/common/php/common.php';
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <?php
     insertHeadLink();
-    insertCSS('/tgdd/css/header.css');
-    insertCSS('/tgdd/css/register.css');
+    insertCSS('css\header.css');
+    insertCSS('css\register.css');
     ?>
 </head>
 
